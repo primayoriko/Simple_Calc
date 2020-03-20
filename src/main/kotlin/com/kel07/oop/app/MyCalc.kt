@@ -1,6 +1,8 @@
-package com.example.demo.app
+package com.kel07.oop.app
 
-import com.example.demo.view.MainView
+import com.kel07.oop.view.MainView
 import tornadofx.App
 
-class MyApp: App(MainView::class, Styles::class)
+class MyCalc: App(MainView::class, Styles::class){
+
+}

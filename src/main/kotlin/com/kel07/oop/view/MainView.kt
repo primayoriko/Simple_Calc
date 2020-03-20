@@ -1,6 +1,6 @@
-package com.example.demo.view
+package com.kel07.oop.view
 
-import com.example.demo.app.Styles
+import com.com.kel07.oop.app.Styles
 import tornadofx.*
 
 class MainView : View("Hello TornadoFX") {
