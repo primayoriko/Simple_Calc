@@ -13,7 +13,7 @@ class Calculator : View(){
     @FXML lateinit var display: Label
 
     init {
-        title = "kt Calculator"
+        title = "Simple Calc"
 
         root.lookupAll(".button").forEach { b ->
             b.setOnMouseClicked {
