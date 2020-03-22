@@ -77,7 +77,7 @@
                     <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="x" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                     <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="/" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                     <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="AC" GridPane.columnIndex="3" />
-                    <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                    <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="log" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                     <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="sin" GridPane.rowIndex="1" />
                     <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="cos" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                     <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="tan" GridPane.columnIndex="2" GridPane.rowIndex="1" />

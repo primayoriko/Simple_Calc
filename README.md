@@ -7,11 +7,11 @@ Java and Kotlin as Language, JavaFX and  TornadoFX as GUI Framework, and also Gr
 ## Feature
 ----
 1. Basic Operation (+, - , x, /)
-2. Sqrt and power operation
-3. Trigonometric function (sin, cos, tan)
-4. Memory functionality (MR, MC, Ans)
-5. Deleting functionality (<-, AC)
-6. Other function (%, abs)
+2. Sqrt and power operation (sqrt, ^)
+3. Logarithm function (log)
+4. Trigonometric function (sin, cos, tan)
+5. Memory functionality (MR, MC, Ans)
+6. Deleting functionality (<-, CE, AC)
 
 ## Prequisites
 ---------
