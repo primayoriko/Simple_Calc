@@ -87,6 +87,7 @@
                     <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="&lt;-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                 </children>
             </GridPane>
+            <Label id="display" fx:id="display" layoutX="17.0" layoutY="21.0" prefHeight="55.0" prefWidth="273.0" style="-fx-background-color: white;" text="" />
         </children>
     </AnchorPane>
 </children>
