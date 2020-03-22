@@ -121,6 +121,9 @@ class Equation : EquationGeneric<String>{
         var op : String;
         this.elmt.forEach { i->stack.add(Pair<String, String>(i.first, i.second))}
         try{
+            if(stack.size==1 && !isValidNum(stack[0].second)){
+                throw ArithmeticException("E");
+            }
             while(stack.size != 1){
                 if(isValidNum(stack[stack.lastIndex].second)){
                     numb = stack[stack.lastIndex].second.toDouble();
