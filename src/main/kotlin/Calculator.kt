@@ -42,7 +42,7 @@ class Calculator : View(){
 //        }
 
     private fun operator(x: String) {
-        if (Regex("[0-9]").matches(x)) {
+        if (Regex("[0-9.]").matches(x)) {
             display.text += x
             value.addDigit(x.toDouble());
         } else {
@@ -51,7 +51,19 @@ class Calculator : View(){
                 y2.addDigit(value.solve());
                 kalkulasi();
                 display.text = ans.solve().toString();
-                value.setZero();
+                value.setValue(0.0);
+            }
+            else if(x.equals("Ans")){
+
+            }
+            else if(x.equals("MC")){
+
+            }
+            else if(x.equals("MR")){
+
+            }
+            else if(x.equals("<-")) {
+
             }
             else if(x.equals("-") || x.equals("sqrt") || x.equals("cos") || x.equals("sin") || x.equals("tan"))
             {
@@ -60,7 +72,7 @@ class Calculator : View(){
             else
             {
                 y1.addDigit(value.solve());
-                value.setZero();
+                value.setValue(0.0);
                 operatorExpression = x;
             }
             // when(x) {
@@ -75,7 +87,6 @@ class Calculator : View(){
             // }
         }
     }
-
     private fun kalkulasi()
     {
 
