@@ -62,21 +62,26 @@ class Calculator : View(){
                 value.setZero();
                 operatorExpression = x;
             }
-            // when(x) {
-            //     "+" -> onAction(add(displayValue))
-            //     "-" -> onAction(sub(displayValue))
-            //     "/" -> onAction(div(displayValue))
-            //     "%" -> { onAction(add(displayValue /100)); operator("=") }
-            //     "X" -> onAction(mult(displayValue))
-            //     "C" -> onAction(add(0))
-            //     "+/-" -> { onAction(add(-1* displayValue)); operator("=") }
-            //     "=" -> display.text = state.calculate(displayValue).toString()
-            // }
         }
     }
 
     private fun kalkulasi()
     {
-
+        if(operatorExpression.equals("+"))
+        {
+            ans.addDigit(AddExpression(y1, y2).solve());
+        }else if(operatorExpression.equals("-"))
+        {
+            ans.addDigit(SubstractExpression(y1, y2).solve());
+        }else if(operatorExpression.equals("*"))
+        {
+            ans.addDigit(MultipleExpression(y1, y2).solve());
+        }else if(operatorExpression.equals("/"))
+        {
+            ans.addDigit(DivideExpression(y1, y2).solve());
+        }else if(operatorExpression.equals("^"))
+        {
+            ans.addDigit(PowerExpression(y1, y2).solve());
+        }
     }
 }
