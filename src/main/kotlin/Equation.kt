@@ -40,7 +40,7 @@ class Equation : EquationGeneric<String>{
     }
 
     override fun isValidNum(x: String): Boolean {
-        return Regex("\\d+(\\.\\d*)?|\\.\\d+").matches(x) // 123. masih valid
+        return Regex("[0-9]*\\.?[0-9]+").matches(x) // \d+(\.\d*)?|\.\d+
     }
 
     override fun isCurEmpty(): Boolean{
