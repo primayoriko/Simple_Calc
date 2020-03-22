@@ -45,10 +45,14 @@ class TerminalExpression : Expression
 //        this.validNum = false
 //    }
 
-    public fun reset()
+    public fun setValue(y: Double)
     {
-        this.x = 0.0;
+        this.x = y;
 //        this.dotNum = 0;
 //        this.validNum = true;
+    }
+
+    fun isValidNum(): Boolean {
+        return Regex("\\d+(\\.\\d*)?|\\.\\d+").matches(x.toString()) // 123. masih valid
     }
 }

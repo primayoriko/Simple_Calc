@@ -36,7 +36,7 @@ class Equation : EquationGeneric<String>{
     }
 
     override fun isValidNum(x: String): Boolean {
-        return Regex("\\d+(\\.\\d*)?|\\.\\d+").matches(x)
+        return Regex("\\d+(\\.\\d*)?|\\.\\d+").matches(x) // 123. masih valid
     }
 
     override fun isCurEmpty(): Boolean{
