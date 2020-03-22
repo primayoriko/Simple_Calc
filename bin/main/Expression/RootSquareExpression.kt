@@ -7,6 +7,10 @@ class RootSquareExpression : UnaryExpression
 
     override public fun solve(): Double
     {
-        return(sqrt(this.x.solve()));
+        if(this.x.solve() < 0.0){
+            throw ArithmeticException("E");
+        }else{
+            return(sqrt(this.x.solve()));
+        }
     }
 }
