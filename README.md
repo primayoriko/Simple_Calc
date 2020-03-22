@@ -1,6 +1,4 @@
 # My Calc
-===========
-
 ## Description
 --------
 Simple calculator that have some basic function and made with 
