@@ -6,6 +6,7 @@ import javafx.scene.layout.VBox
 import tornadofx.*
 import Expression.*
 import Operator.*
+import Expression.*
 
 class Calculator : View(){
     var ans = TerminalExpression()

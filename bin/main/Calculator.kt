@@ -4,19 +4,19 @@ import javafx.scene.control.Button
 import javafx.scene.control.Label
 import javafx.scene.layout.VBox
 import tornadofx.*
+import Expression.*
 import Operator.*
-
+import Expression.*
 
 class Calculator : View(){
-    TerminalExpression ans = TerminalExpression();
-    TerminalExpression value = TerminalExpression();
-    TerminalExpression y1 = TerminalExpression();
-    TerminalExpression y2 = TerminalExpression();
+    var ans = TerminalExpression()
+    var value = TerminalExpression()
+    var y1 = TerminalExpression()
+    var y2 = TerminalExpression()
     var operatorExpression: String ="";
     
     override val root: VBox by fxml()
     @FXML lateinit var display: Label
-    
     init {
         title = "Simple Calc"
         root.lookupAll(".button").forEach { b ->
