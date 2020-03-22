@@ -26,11 +26,11 @@ class BasicCommand{
         else if(x.equals("AC")){
             display = ""
             ans.setValue(0.0)
-            //equation.reset()
+            equation.clear()
         }
         else if(x.equals("MR")){
             if(!savedVal.isEmpty()) {
-                //equation.clear()
+                equation.clear()
                 display = savedVal.remove()
             }
         }
