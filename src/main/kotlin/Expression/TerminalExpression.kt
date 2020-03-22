@@ -19,7 +19,7 @@ class TerminalExpression : Expression
         return this.x;
     }
 
-    public fun addDigit(y: Int)
+    public fun addDigit(y: Double)
     {
         if(this.x == 0.0)
         {

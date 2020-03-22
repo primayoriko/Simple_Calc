@@ -29,22 +29,23 @@ class Calculator : View(){
         }
     }
 
-    var state: Operator = add(0)
+//    var state: Operator = add(0)
+//
+//    fun onAction(fn: Operator) {
+//        state = fn
+//        display.text = ""
+//    }
 
-    fun onAction(fn: Operator) {
-        state = fn
-        display.text = ""
-    }
-
-    val displayValue: Long
-        get() = when(display.text) {
-            "" -> 0
-            else -> display.text.toLong()
-        }
+//    val displayValue: Long
+//        get() = when(display.text) {
+//            "" -> 0
+//            else -> display.text.toLong()
+//        }
 
     private fun operator(x: String) {
         if (Regex("[0-9]").matches(x)) {
             display.text += x
+            value.addDigit(x.toDouble());
         } else {
             if(x.equals("="))
             {
@@ -52,10 +53,12 @@ class Calculator : View(){
                 kalkulasi();
                 display.text = ans.solve().toString();
                 value.setZero();
-            }else if(x.equals("-") || x.equals("sqrt") || x.equals("cos") || x.equals("sin") || x.equals("tan"))
+            }
+            else if(x.equals("-") || x.equals("sqrt") || x.equals("cos") || x.equals("sin") || x.equals("tan"))
             {
                 operatorExpression = x;
-            }else
+            }
+            else
             {
                 y1.addDigit(value.solve());
                 value.setZero();
