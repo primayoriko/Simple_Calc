@@ -45,8 +45,10 @@ class TerminalExpression : Expression
         this.validNum = false
     }
 
-    public fun setValue(value: Double)
+    public fun reset()
     {
-        this.x = value;
+        this.x = 0.0;
+        this.dotNum = 0;
+        this.validNum = true;
     }
 }

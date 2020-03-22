@@ -51,7 +51,7 @@ class Calculator : View(){
                 y2.addDigit(value.solve());
                 kalkulasi();
                 display.text = ans.solve().toString();
-                value.setValue(0.0);
+                value.reset();
             }
             else if(x.equals("Ans")){
 
@@ -72,7 +72,7 @@ class Calculator : View(){
             else
             {
                 y1.addDigit(value.solve());
-                value.setValue(0.0);
+                value.reset();
                 operatorExpression = x;
             }
         }
