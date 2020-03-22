@@ -1,4 +1,6 @@
-import Expression.*
+package MyCalc.test.kotlin
+
+import MyCalc.main.kotlin.Expression.*
 
 fun main(args: Array<String>)
 {

@@ -1,3 +1,7 @@
+package MyCalc.test.kotlin
+
+import MyCalc.main.kotlin.*
+
 fun main(args: Array<String>){
     var test = Equation()
 

@@ -1,4 +1,6 @@
-import Expression.*
+package MyCalc.main.kotlin
+
+import MyCalc.main.kotlin.Expression.*
 import java.util.Queue
 import java.util.LinkedList
 

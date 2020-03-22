@@ -1,4 +1,4 @@
-package Expression
+package MyCalc.main.kotlin.Expression
 
 interface Expression
 {

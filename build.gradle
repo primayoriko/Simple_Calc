@@ -44,7 +44,7 @@ javafx {
     modules = [ 'javafx.controls' , 'javafx.fxml']
 }
 
-mainClassName="MainApp"
+mainClassName="MyCalc.main.kotlin.MainApp"
 
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"

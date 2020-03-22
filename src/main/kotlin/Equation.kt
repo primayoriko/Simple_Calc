@@ -1,4 +1,6 @@
-import Expression.*
+package MyCalc.main.kotlin
+
+import MyCalc.main.kotlin.Expression.*
 
 interface EquationGeneric<T>{
     var elmt : MutableList<Pair<String, T>>

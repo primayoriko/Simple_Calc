@@ -51,8 +51,7 @@ This calculator is so simple
 2. This only support a operation at once, one unary operator or one binary operator
 
 ### Bugs
-1.
-2.
+1. Not a pure bug, but after calculating result, we must clear the screen that contain result/answer with _CE_ button manually, if not the screen look will be joined with previous result and would trigger further error. 
 
 ## Credits
 -----

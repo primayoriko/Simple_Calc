@@ -1,3 +1,5 @@
+package MyCalc.main.kotlin
+
 import javafx.fxml.FXML
 import javafx.scene.input.KeyEvent
 import javafx.scene.control.Button
@@ -6,7 +8,7 @@ import javafx.scene.layout.VBox
 import tornadofx.*
 
 class Calculator : View(){
-    override val root: VBox by fxml()
+    override val root: VBox by fxml("/Calculator.fxml")
     @FXML lateinit var display: Label
     var command = BasicCommand()
     init {

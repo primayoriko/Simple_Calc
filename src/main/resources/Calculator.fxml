@@ -87,12 +87,6 @@
                     <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="&lt;-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                 </children>
             </GridPane>
-            <Label id="display" fx:id="display" layoutX="17.0" layoutY="21.0" prefHeight="55.0" prefWidth="273.0" style="-fx-background-color: white;" text="" />
-            <!--                <Label alignment="CENTER" layoutX="24.0" layoutY="330.0" prefHeight="27.0" prefWidth="266.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">-->
-            <!--                    <font>-->
-            <!--                        <Font size="18.0" />-->
-            <!--                    </font>-->
-            <!--                </Label>-->
         </children>
     </AnchorPane>
 </children>

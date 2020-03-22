@@ -1,3 +1,5 @@
+package MyCalc.main.kotlin
+
 import javafx.stage.Stage
 import tornadofx.*
 

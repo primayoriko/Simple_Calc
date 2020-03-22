@@ -1,4 +1,6 @@
-import Expression.*
+package MyCalc.test.kotlin
+
+import MyCalc.main.kotlin.*
 
 fun main(args: Array<String>) {
 //    val a = TerminalExpression()
