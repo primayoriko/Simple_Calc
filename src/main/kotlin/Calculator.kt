@@ -10,7 +10,6 @@ import Operator.*
 class Calculator : View(){
     override val root: VBox by fxml()
     @FXML lateinit var display: Label
-
     init {
         title = "Simple Calc"
         root.lookupAll(".button").forEach { b ->
