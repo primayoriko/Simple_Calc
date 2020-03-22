@@ -13,6 +13,7 @@ class Calculator : View(){
     var y2 = TerminalExpression()
     var operatorExpression: String ="";
     var queue : MutableList<Double> = arrayListOf();
+    var equation = Equation()
     
     override val root: VBox by fxml()
     @FXML lateinit var display: Label
@@ -43,6 +44,10 @@ class Calculator : View(){
 //        }
 
     private fun operator(x: String) {
+        if(x.equals("=")){
+            display.text = equation.calculate()
+
+        }
         if (Regex("[0-9.]").matches(x)) {
             display.text += x
             value.addDigit(x.toDouble());

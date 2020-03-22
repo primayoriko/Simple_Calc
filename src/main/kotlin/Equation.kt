@@ -1,9 +1,13 @@
+import Expression.*
+
 interface EquationGeneric<T>{
     var elmt : MutableList<Pair<String, T>>
     var curToken : T
     var curType : T
 
-    fun isNumComponent(x: T): Boolean
+    public fun isNumComponent(x: T): Boolean
+
+    public fun isValidNum(x: T): Boolean
 
     fun isCurEmpty(): Boolean
 
@@ -11,7 +15,7 @@ interface EquationGeneric<T>{
 
     public fun printEquation() : T
 
-    public fun calculate()
+    public fun calculate() : T
 }
 
 class Equation : EquationGeneric<String>{
@@ -26,6 +30,10 @@ class Equation : EquationGeneric<String>{
     }
 
     override fun isNumComponent(x: String): Boolean{
+        return Regex("[0-9.]").matches(x)
+    }
+
+    override fun isValidNum(x: String): Boolean {
         return Regex("\\d+(\\.\\d*)?|\\.\\d+").matches(x)
     }
 
@@ -34,7 +42,7 @@ class Equation : EquationGeneric<String>{
     }
 
     override public fun addToken(token: String){
-        if (isNumComponent(token)) {
+        if (isNumComponent(this.curToken + token)) {
             this.curToken += token
             this.curType = "operand"
         }
@@ -76,7 +84,9 @@ class Equation : EquationGeneric<String>{
         return equation
     }
 
-    override public fun calculate(){
+    override public fun calculate(): String{
+        var result = ""
 
+        return result
     }
 }
