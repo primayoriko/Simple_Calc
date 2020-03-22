@@ -1,23 +1,44 @@
-class Equation<T>(defElmt: T){
-    private var elmt : MutableList<Pair<String, T>> = mutableListOf<Pair<String, T>>()
-    private var curToken : String = ""
-    private var curType : String = ""
+interface EquationGeneric<T>{
+    var elmt : MutableList<Pair<String, T>>
+    var curToken : T
+    var curType : T
 
-    public fun isNumComponent(x: String): Boolean{
-        return Regex("[0-9.]").matches(x)
+    fun isNumComponent(x: T): Boolean
+
+    fun isCurEmpty(): Boolean
+
+    public fun addToken(token: T)
+
+    public fun printEquation() : T
+
+    public fun calculate()
+}
+
+class Equation : EquationGeneric<String>{
+    override var elmt: MutableList<Pair<String, String>>
+    override var curToken: String
+    override var curType: String
+
+    constructor(){
+        this.elmt = mutableListOf<Pair<String, String>>()
+        this.curToken = ""
+        this.curType = ""
     }
 
-    private fun isCurEmpty(): Boolean{
+    override fun isNumComponent(x: String): Boolean{
+        return Regex("\\d+(\\.\\d*)?|\\.\\d+").matches(x)
+    }
+
+    override fun isCurEmpty(): Boolean{
         return this.curToken.isEmpty()
     }
 
-    public fun addToken(token: T){
-        val tokenS = token.toString()
-        if (isNumComponent(tokenS)) {
-            this.curToken += tokenS
+    override public fun addToken(token: String){
+        if (isNumComponent(token)) {
+            this.curToken += token
             this.curType = "operand"
         }
-        else if(tokenS.equals("<-")){
+        else if(token.equals("<-")){
             if(!isCurEmpty() && this.curType.equals("operand")){
                 this.curToken = this.curToken.slice(0..this.curToken.length-2)
                 if(isCurEmpty()){
@@ -39,18 +60,23 @@ class Equation<T>(defElmt: T){
         }
         else{
             if(!isCurEmpty()){
-                this.elmt.add(Pair<String, T>(this.curToken, this.curType))
+                this.elmt.add(Pair<String, String>(this.curType, this.curToken))
             }
             this.curType="operator"
-            this.curToken=tokenS
+            this.curToken=token
         }
     }
 
-    public fun allEquation(){
-
+    override public fun printEquation(): String{
+        var equation = ""
+        this.elmt.forEach { i ->  equation += i.second }
+        if(!isCurEmpty()){
+            equation += this.curToken
+        }
+        return equation
     }
 
-    public fun calculate(){
+    override public fun calculate(){
 
     }
 }
