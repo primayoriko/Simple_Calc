@@ -1,8 +1,8 @@
-# My Calc
+# Simple Calc
 ## Description
 --------
 Simple calculator that have some basic function and made with 
-Kotlin, TornadoFX, and Gradle.
+Java and Kotlin as Language, JavaFX and  TornadoFX as GUI Framework, and also Gradle App Builder.
 
 ## Feature
 ----

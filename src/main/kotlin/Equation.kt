@@ -15,6 +15,10 @@ interface EquationGeneric<T>{
 
     public fun addToken(token: T)
 
+    public fun removeToken()
+
+    public fun clear()
+
     public fun printEquation() : T
 
     public fun calculate() : T
@@ -50,29 +54,12 @@ class Equation : EquationGeneric<String>{
     }
 
     override public fun addToken(token: String){
-        if (isNumComponent(token)) {
+        if (isNumComponent(token) || isValidNum(token)) {
             this.curToken += token
             this.curType = "operand"
         }
         else if(token.equals("<-")){
-            if(!isCurEmpty() && this.curType.equals("operand")){
-                this.curToken = this.curToken.slice(0..this.curToken.length-2)
-                if(isCurEmpty()){
-                    this.curType = ""
-                }
-            }
-            else if(this.curType.equals("operator")){
-                this.curToken = ""
-                this.curType = ""
-            }
-            else if(isCurEmpty()){
-                if(!this.elmt.isEmpty()){
-                    this.curToken = this.elmt[this.elmt.lastIndex].second
-                    this.curType = this.elmt[this.elmt.lastIndex].first
-                    this.elmt.removeAt(this.elmt.lastIndex)
-                    addToken(token)
-                }
-            }
+            removeToken()
         }
         else{
             if(!isCurEmpty()){
@@ -82,6 +69,33 @@ class Equation : EquationGeneric<String>{
             this.curType=""
             this.curToken=""
         }
+    }
+
+    override fun removeToken() {
+        if(!isCurEmpty() && this.curType.equals("operand")){
+            this.curToken = this.curToken.slice(0..this.curToken.length-2)
+            if(isCurEmpty()){
+                this.curType = ""
+            }
+        }
+        else if(this.curType.equals("operator")){
+            this.curToken = ""
+            this.curType = ""
+        }
+        else if(isCurEmpty()){
+            if(!this.elmt.isEmpty()){
+                this.curToken = this.elmt[this.elmt.lastIndex].second
+                this.curType = this.elmt[this.elmt.lastIndex].first
+                this.elmt.removeAt(this.elmt.lastIndex)
+                removeToken()
+            }
+        }
+    }
+
+    override fun clear() {
+        this.curType=""
+        this.curToken=""
+        this.elmt = mutableListOf<Pair<String, String>>()
     }
 
     override public fun printEquation(): String{
