@@ -77,7 +77,13 @@ class Calculator : View(){
                     queue.add(value.solve());
                 }
                 else if(x.equals("MR")){
-                    
+                    if(queue.isEmpty())
+                    {
+                        value.reset();
+                    }else
+                    {
+                        value.addDigit(queue.removeAt(0));
+                    }
                 }
                 else if(x.equals("<-")) {
 
