@@ -11,6 +11,8 @@ interface EquationGeneric<T>{
 
     fun isCurEmpty(): Boolean
 
+    public fun addToken()
+
     public fun addToken(token: T)
 
     public fun printEquation() : T
@@ -41,8 +43,14 @@ class Equation : EquationGeneric<String>{
         return this.curToken.isEmpty()
     }
 
+    override fun addToken() {
+        if(!isCurEmpty()){
+            this.elmt.add(Pair<String, String>(this.curType, this.curToken))
+        }
+    }
+
     override public fun addToken(token: String){
-        if (isNumComponent(this.curToken + token)) {
+        if (isNumComponent(token)) {
             this.curToken += token
             this.curType = "operand"
         }
@@ -59,7 +67,7 @@ class Equation : EquationGeneric<String>{
             }
             else if(isCurEmpty()){
                 if(!this.elmt.isEmpty()){
-                    this.curToken = this.elmt[this.elmt.lastIndex].second.toString()
+                    this.curToken = this.elmt[this.elmt.lastIndex].second
                     this.curType = this.elmt[this.elmt.lastIndex].first
                     this.elmt.removeAt(this.elmt.lastIndex)
                     addToken(token)
@@ -70,8 +78,9 @@ class Equation : EquationGeneric<String>{
             if(!isCurEmpty()){
                 this.elmt.add(Pair<String, String>(this.curType, this.curToken))
             }
-            this.curType="operator"
-            this.curToken=token
+            this.elmt.add(Pair<String, String>("operator", token))
+            this.curType=""
+            this.curToken=""
         }
     }
 
@@ -86,6 +95,19 @@ class Equation : EquationGeneric<String>{
 
     override public fun calculate(): String{
         var result = ""
+        this.elmt.forEach { i->{
+            if(i.first.equals("operand")){
+                if(isValidNum(i.second)){
+
+                }
+                else{
+                    //throw error
+                }
+            }
+            else{
+
+            }
+        } }
 
         return result
     }
