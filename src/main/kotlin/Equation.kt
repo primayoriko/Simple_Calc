@@ -122,12 +122,13 @@ class Equation : EquationGeneric<String>{
                     if(stack.isNotEmpty()){
                         op = stack[stack.lastIndex].second;
                         stack.removeAt(stack.lastIndex);
-                        if(op.equals("sqrt") || op.equals("sin") || op.equals("cos") || op.equals("tan") || (op.equals("-") && stack.isNotEmpty() && stack[stack.lastIndex].first.equals("operator"))){
+                        if(op.equals("log") || op.equals("sqrt") || op.equals("sin") || op.equals("cos") || op.equals("tan") || (op.equals("-") && stack.isNotEmpty() && stack[stack.lastIndex].first.equals("operator"))){
                             result = when(op)
                             {
                                 "-" -> {
                                     NegativeExpression(TerminalExpression(numb)).solve().toString()
                                 }
+                                "log" -> LogExpression(TerminalExpression(numb)).solve().toString()
                                 "sqrt" -> RootSquareExpression(TerminalExpression(numb)).solve().toString()
                                 "sin" -> TrigonometricExpression(TerminalExpression(numb)).solve(1).toString()
                                 "cos" -> TrigonometricExpression(TerminalExpression(numb)).solve(2).toString()
@@ -194,8 +195,7 @@ fun main(args: Array<String>) {
     //    val np = AddExpression(TerminalExpression(5.0), TerminalExpression(7.0));
     //    println(np.solve());
     var equ = Equation();
-    equ.addToken("1");
-    equ.addToken("/");
+    equ.addToken("log");
     equ.addToken("0");
     // equ.addToken("/");
     // equ.addToken("10");
