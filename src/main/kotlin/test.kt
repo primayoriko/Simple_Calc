@@ -8,6 +8,6 @@ fun main(args: Array<String>) {
     println(a.solve());
     a.addDigit(6);
     println(a.solve());
-    val np = AddExpression(a, b);
+    val np = AddExpression(TerminalExpression(5.0), TerminalExpression(7.0));
     println(np.solve());
 }

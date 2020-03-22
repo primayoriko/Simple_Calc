@@ -29,4 +29,9 @@ class TerminalExpression : Expression
             this.x = this.x * 10 + y;
         }
     }
+
+    public fun setZero()
+    {
+        this.x = 0.0;
+    }
 }
