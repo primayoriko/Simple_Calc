@@ -12,6 +12,7 @@ class Calculator : View(){
     var y1 = TerminalExpression()
     var y2 = TerminalExpression()
     var operatorExpression: String ="";
+    var queue : MutableList<Double> = arrayListOf();
     
     override val root: VBox by fxml()
     @FXML lateinit var display: Label
@@ -42,30 +43,45 @@ class Calculator : View(){
 //        }
 
     private fun operator(x: String) {
-        if (Regex("[0-9]").matches(x)) {
+        if (Regex("[0-9.]").matches(x)) {
             display.text += x
             value.addDigit(x.toDouble());
         } else {
-            if(x.equals("="))
-            {
-                y2.addDigit(value.solve());
-                kalkulasi();
-                display.text = ans.solve().toString();
-                value.setZero();
-            }
-            else if(x.equals("-") || x.equals("sqrt") || x.equals("cos") || x.equals("sin") || x.equals("tan"))
-            {
-                operatorExpression = x;
-            }
-            else
+            // Binary Operator
+            if(true)
             {
                 y1.addDigit(value.solve());
-                value.setZero();
+                value.reset();
                 operatorExpression = x;
+            }
+            // Unary Operator n Khusus
+            else{
+                if(x.equals("="))
+                {
+                    y2.addDigit(value.solve());
+                    kalkulasi();
+                    display.text = ans.solve().toString();
+                    value.reset();
+                }
+                else if(x.equals("Ans")){
+
+                }
+                else if(x.equals("MC")){
+
+                }
+                else if(x.equals("MR")){
+
+                }
+                else if(x.equals("<-")) {
+
+                }
+                else if (x.equals("-") || x.equals("sqrt") || x.equals("cos") || x.equals("sin") || x.equals("tan"))
+                {
+                    operatorExpression = x;
+                }
             }
         }
     }
-
     private fun kalkulasi()
     {
         if(operatorExpression.equals("+"))
@@ -83,6 +99,18 @@ class Calculator : View(){
         }else if(operatorExpression.equals("^"))
         {
             ans.addDigit(PowerExpression(y1, y2).solve());
+        }else if(operatorExpression.equals("sqrt"))
+        {
+            ans.addDigit(RootSquareExpression(y1).solve());
+        }else if(operatorExpression.equals("sin"))
+        {
+            ans.addDigit(TrigonometricExpression(y1).solve(1));
+        }else if(operatorExpression.equals("cos"))
+        {
+            ans.addDigit(TrigonometricExpression(y1).solve(2));
+        }else if(operatorExpression.equals("tan"))
+        {
+            ans.addDigit(TrigonometricExpression(y1).solve(3));
         }
     }
 }
