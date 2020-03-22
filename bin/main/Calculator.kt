@@ -5,8 +5,6 @@ import javafx.scene.control.Label
 import javafx.scene.layout.VBox
 import tornadofx.*
 import Expression.*
-import Operator.*
-import Expression.*
 
 class Calculator : View(){
     var ans = TerminalExpression()
@@ -30,22 +28,23 @@ class Calculator : View(){
         }
     }
 
-    var state: Operator = add(0)
+//    var state: Operator = add(0)
+//
+//    fun onAction(fn: Operator) {
+//        state = fn
+//        display.text = ""
+//    }
 
-    fun onAction(fn: Operator) {
-        state = fn
-        display.text = ""
-    }
-
-    val displayValue: Long
-        get() = when(display.text) {
-            "" -> 0
-            else -> display.text.toLong()
-        }
+//    val displayValue: Long
+//        get() = when(display.text) {
+//            "" -> 0
+//            else -> display.text.toLong()
+//        }
 
     private fun operator(x: String) {
         if (Regex("[0-9]").matches(x)) {
             display.text += x
+            value.addDigit(x.toDouble());
         } else {
             if(x.equals("="))
             {
@@ -53,30 +52,37 @@ class Calculator : View(){
                 kalkulasi();
                 display.text = ans.solve().toString();
                 value.setZero();
-            }else if(x.equals("-") || x.equals("sqrt") || x.equals("cos") || x.equals("sin") || x.equals("tan"))
+            }
+            else if(x.equals("-") || x.equals("sqrt") || x.equals("cos") || x.equals("sin") || x.equals("tan"))
             {
                 operatorExpression = x;
-            }else
+            }
+            else
             {
                 y1.addDigit(value.solve());
                 value.setZero();
                 operatorExpression = x;
             }
-            // when(x) {
-            //     "+" -> onAction(add(displayValue))
-            //     "-" -> onAction(sub(displayValue))
-            //     "/" -> onAction(div(displayValue))
-            //     "%" -> { onAction(add(displayValue /100)); operator("=") }
-            //     "X" -> onAction(mult(displayValue))
-            //     "C" -> onAction(add(0))
-            //     "+/-" -> { onAction(add(-1* displayValue)); operator("=") }
-            //     "=" -> display.text = state.calculate(displayValue).toString()
-            // }
         }
     }
 
     private fun kalkulasi()
     {
-
+        if(operatorExpression.equals("+"))
+        {
+            ans.addDigit(AddExpression(y1, y2).solve());
+        }else if(operatorExpression.equals("-"))
+        {
+            ans.addDigit(SubstractExpression(y1, y2).solve());
+        }else if(operatorExpression.equals("*"))
+        {
+            ans.addDigit(MultipleExpression(y1, y2).solve());
+        }else if(operatorExpression.equals("/"))
+        {
+            ans.addDigit(DivideExpression(y1, y2).solve());
+        }else if(operatorExpression.equals("^"))
+        {
+            ans.addDigit(PowerExpression(y1, y2).solve());
+        }
     }
 }
