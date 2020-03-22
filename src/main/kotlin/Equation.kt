@@ -115,14 +115,12 @@ class Equation : EquationGeneric<String>{
         var op : String;
         this.elmt.forEach { i->stack.add(Pair<String, String>(i.first, i.second))}
 
-        while(stack.size == 1){
+        while(stack.size != 1){
             if(isValidNum(stack[stack.lastIndex].second)){
                 numb = stack[stack.lastIndex].second.toDouble();
-                print(numb);
                 stack.removeAt(stack.lastIndex);
                 if(stack.isNotEmpty()){
                     op = stack[stack.lastIndex].second;
-                    print(op);
                     stack.removeAt(stack.lastIndex);
                     if(op.equals("sqrt") || op.equals("sin") || op.equals("cos") || op.equals("tan") || (op.equals("-") && stack.isNotEmpty() && stack[stack.lastIndex].first.equals("operator"))){
                         result = when(op)
@@ -140,35 +138,28 @@ class Equation : EquationGeneric<String>{
                             stack.removeAt(stack.lastIndex);
                         }
                         stack.add(Pair<String, String>("operand", result));
-                        println();
-                        print(result);
                     }else
                     {
                         if(stack.isNotEmpty() && isValidNum(stack[stack.lastIndex].second))
                         {
                             numb2 = stack[stack.lastIndex].second.toDouble();
-                            print(numb2);
                             stack.removeAt(stack.lastIndex);
                             if(stack.isNotEmpty() && stack[stack.lastIndex].second.equals("-") && stack[stack.lastIndex-1].first.equals("operator"))
                             {
                                 stack.removeAt(stack.lastIndex);
                                 numb2 = NegativeExpression(TerminalExpression(numb2)).solve();
-                                println();
-                                print(numb2);
                             }
                             
                             result = when(op)
                             {
                                 "+" -> AddExpression(TerminalExpression(numb), TerminalExpression(numb2)).solve().toString()
-                                "-" -> SubstractExpression(TerminalExpression(numb), TerminalExpression(numb2)).solve().toString()
+                                "-" -> SubstractExpression(TerminalExpression(numb2), TerminalExpression(numb)).solve().toString()
                                 "*" -> MultipleExpression(TerminalExpression(numb), TerminalExpression(numb2)).solve().toString()
-                                "/" -> DivideExpression(TerminalExpression(numb), TerminalExpression(numb2)).solve().toString()
-                                "^" -> PowerExpression(TerminalExpression(numb), TerminalExpression(numb2)).solve().toString()
+                                "/" -> DivideExpression(TerminalExpression(numb2), TerminalExpression(numb)).solve().toString()
+                                "^" -> PowerExpression(TerminalExpression(numb2), TerminalExpression(numb)).solve().toString()
                                 else -> throw ArithmeticException("E");
                             }
                             stack.add(Pair<String,String>("operand",result));
-                            println();
-                            print(result);
                         }else
                         {
                             throw ArithmeticException("E");
@@ -178,8 +169,6 @@ class Equation : EquationGeneric<String>{
                 {
                     result = numb.toString();
                     stack.add(Pair<String,String>("operand",result));
-                    println();
-                    print(result);
                 }
             }else
             {
@@ -187,8 +176,24 @@ class Equation : EquationGeneric<String>{
             }
         }
         result = stack[stack.lastIndex].second;
-        println();
-        print(result);
         return result;
     }
+}
+
+fun main(args: Array<String>) {
+    //    val a = TerminalExpression()
+    //    val b = TerminalExpression(6.0)
+    //
+    //    a.addDigit(5);
+    //    println(a.solve());
+    //    a.addDigit(6);
+    //    println(a.solve());
+    //    val np = AddExpression(TerminalExpression(5.0), TerminalExpression(7.0));
+    //    println(np.solve());
+    var equ = Equation();
+    equ.addToken("10");
+    equ.addToken("/");
+    equ.addToken("5.0");
+    equ.addToken();
+    println(equ.calculate());
 }
