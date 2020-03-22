@@ -20,7 +20,7 @@ class TerminalExpression : Expression
     }
 
     fun isValidNum(): Boolean {
-        return Regex("[0-9]*\\.?[0-9]+").matches(x) // \d+(\.\d*)?|\.\d+
+        return Regex("[0-9]*\\.?[0-9]+").matches(this.x.toString()) // \d+(\.\d*)?|\.\d+
     }
 
     override public fun solve(): Double
