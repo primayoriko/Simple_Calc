@@ -12,6 +12,7 @@ class Calculator : View(){
     var y1 = TerminalExpression()
     var y2 = TerminalExpression()
     var operatorExpression: String ="";
+    var queue : MutableList<Double> = arrayListOf();
     
     override val root: VBox by fxml()
     @FXML lateinit var display: Label
@@ -83,6 +84,18 @@ class Calculator : View(){
         }else if(operatorExpression.equals("^"))
         {
             ans.addDigit(PowerExpression(y1, y2).solve());
+        }else if(operatorExpression.equals("sqrt"))
+        {
+            ans.addDigit(RootSquareExpression(y1).solve());
+        }else if(operatorExpression.equals("sin"))
+        {
+            ans.addDigit(TrigonometricExpression(y1).solve(1));
+        }else if(operatorExpression.equals("cos"))
+        {
+            ans.addDigit(TrigonometricExpression(y1).solve(2));
+        }else if(operatorExpression.equals("tan"))
+        {
+            ans.addDigit(TrigonometricExpression(y1).solve(3));
         }
     }
 }
