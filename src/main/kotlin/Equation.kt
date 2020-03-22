@@ -184,7 +184,7 @@ class Equation : EquationGeneric<String>{
             result = stack[stack.lastIndex].second;
             return result;
         }catch(e: ArithmeticException){
-            return "E";
+            return "Error";
         }
     }
 }
@@ -201,7 +201,7 @@ fun main(args: Array<String>) {
     //    println(np.solve());
     var equ = Equation();
     equ.addToken("1");
-    equ.addToken("x");
+    equ.addToken("/");
     equ.addToken("0");
     // equ.addToken("/");
     // equ.addToken("10");
