@@ -14,7 +14,14 @@ class TrigonometricExpression : UnaryExpression
         var result = when(y) {
             1 -> Math.sin(Math.toRadians(this.x.solve()))
             2 -> Math.cos(Math.toRadians(this.x.solve()))
-            3 -> Math.tan(Math.toRadians(this.x.solve()))
+            3 -> {
+                if(this.x.solve() % 180.0 == 90.0){
+                    throw ArithmeticException("E");
+                }else
+                {
+                    Math.tan(Math.toRadians(this.x.solve()));
+                }
+            }
             else -> 0.0
         }
         return result

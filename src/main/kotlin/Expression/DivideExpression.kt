@@ -6,6 +6,12 @@ class DivideExpression : BinaryExpression
     
     override public fun solve(): Double
     {
-        return(this.x.solve() / this.y.solve());
+        if(this.y.solve() == 0.0)
+        {
+            throw ArithmeticException("E");
+        }else
+        {
+            return(this.x.solve() / this.y.solve());
+        }
     }
 }
