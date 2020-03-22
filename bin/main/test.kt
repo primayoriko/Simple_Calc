@@ -1,4 +1,4 @@
-//import Expression.*
+import Expression.*
 
 fun main(args: Array<String>) {
 //    val a = TerminalExpression()
