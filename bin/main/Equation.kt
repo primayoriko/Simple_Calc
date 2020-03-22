@@ -104,9 +104,11 @@ class Equation : EquationGeneric<String>{
         while(stack.size == 1){
             if(isValidNum(stack[stack.lastIndex].second)){
                 numb = stack[stack.lastIndex].second.toDouble();
+                print(numb);
                 stack.removeAt(stack.lastIndex);
                 if(stack.isNotEmpty()){
                     op = stack[stack.lastIndex].second;
+                    print(op);
                     stack.removeAt(stack.lastIndex);
                     if(op.equals("sqrt") || op.equals("sin") || op.equals("cos") || op.equals("tan") || (op.equals("-") && stack.isNotEmpty() && stack[stack.lastIndex].first.equals("operator"))){
                         result = when(op)
@@ -124,16 +126,21 @@ class Equation : EquationGeneric<String>{
                             stack.removeAt(stack.lastIndex);
                         }
                         stack.add(Pair<String, String>("operand", result));
+                        println();
+                        print(result);
                     }else
                     {
                         if(stack.isNotEmpty() && isValidNum(stack[stack.lastIndex].second))
                         {
                             numb2 = stack[stack.lastIndex].second.toDouble();
+                            print(numb2);
                             stack.removeAt(stack.lastIndex);
                             if(stack.isNotEmpty() && stack[stack.lastIndex].second.equals("-") && stack[stack.lastIndex-1].first.equals("operator"))
                             {
                                 stack.removeAt(stack.lastIndex);
                                 numb2 = NegativeExpression(TerminalExpression(numb2)).solve();
+                                println();
+                                print(numb2);
                             }
                             
                             result = when(op)
@@ -146,6 +153,8 @@ class Equation : EquationGeneric<String>{
                                 else -> throw ArithmeticException("E");
                             }
                             stack.add(Pair<String,String>("operand",result));
+                            println();
+                            print(result);
                         }else
                         {
                             throw ArithmeticException("E");
@@ -155,6 +164,8 @@ class Equation : EquationGeneric<String>{
                 {
                     result = numb.toString();
                     stack.add(Pair<String,String>("operand",result));
+                    println();
+                    print(result);
                 }
             }else
             {
@@ -162,6 +173,8 @@ class Equation : EquationGeneric<String>{
             }
         }
         result = stack[stack.lastIndex].second;
+        println();
+        print(result);
         return result;
     }
 }
