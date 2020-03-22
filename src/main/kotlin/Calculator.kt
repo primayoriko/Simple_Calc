@@ -46,34 +46,38 @@ class Calculator : View(){
             display.text += x
             value.addDigit(x.toDouble());
         } else {
-            if(x.equals("="))
-            {
-                y2.addDigit(value.solve());
-                kalkulasi();
-                display.text = ans.solve().toString();
-                value.reset();
-            }
-            else if(x.equals("Ans")){
-
-            }
-            else if(x.equals("MC")){
-
-            }
-            else if(x.equals("MR")){
-
-            }
-            else if(x.equals("<-")) {
-
-            }
-            else if(x.equals("-") || x.equals("sqrt") || x.equals("cos") || x.equals("sin") || x.equals("tan"))
-            {
-                operatorExpression = x;
-            }
-            else
+            // Binary Operator
+            if(true)
             {
                 y1.addDigit(value.solve());
                 value.reset();
                 operatorExpression = x;
+            }
+            // Unary Operator n Khusus
+            else{
+                if(x.equals("="))
+                {
+                    y2.addDigit(value.solve());
+                    kalkulasi();
+                    display.text = ans.solve().toString();
+                    value.reset();
+                }
+                else if(x.equals("Ans")){
+
+                }
+                else if(x.equals("MC")){
+
+                }
+                else if(x.equals("MR")){
+
+                }
+                else if(x.equals("<-")) {
+
+                }
+                else if (x.equals("-") || x.equals("sqrt") || x.equals("cos") || x.equals("sin") || x.equals("tan"))
+                {
+                    operatorExpression = x;
+                }
             }
         }
     }
