@@ -193,7 +193,7 @@ fun main(args: Array<String>) {
     var equ = Equation();
     equ.addToken("10");
     equ.addToken("/");
-    equ.addToken("5.0");
+    equ.addToken("5");
     equ.addToken();
     println(equ.calculate());
 }
