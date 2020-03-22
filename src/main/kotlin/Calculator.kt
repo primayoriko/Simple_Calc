@@ -65,13 +65,14 @@ class Calculator : View(){
                     value.reset();
                 }
                 else if(x.equals("Ans")){
-
+                    y1.reset();
+                    y1.addDigit(value.solve());
                 }
                 else if(x.equals("MC")){
-
+                    queue.add(value.solve());
                 }
                 else if(x.equals("MR")){
-
+                    
                 }
                 else if(x.equals("<-")) {
 
@@ -112,6 +113,9 @@ class Calculator : View(){
         }else if(operatorExpression.equals("tan"))
         {
             ans.addDigit(TrigonometricExpression(y1).solve(3));
+        }else if(operatorExpression.equals("ans"))
+        {
+            
         }
     }
 }
