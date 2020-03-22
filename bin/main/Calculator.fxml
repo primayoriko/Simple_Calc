@@ -76,15 +76,15 @@
                     <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="4" />
                     <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="x" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                     <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="/" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                    <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="&lt;-" GridPane.columnIndex="3" />
-                    <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="abs" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                    <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="AC" GridPane.columnIndex="3" />
+                    <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="log" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                     <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="sin" GridPane.rowIndex="1" />
                     <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="cos" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                     <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="tan" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                    <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="AC" GridPane.columnIndex="2" />
+                    <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="CE" GridPane.columnIndex="2" />
                     <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="MC" />
                     <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="MR" GridPane.columnIndex="1" />
-                    <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="\%" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                    <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="59.0" text="&lt;-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                 </children>
             </GridPane>
             <Label id="display" fx:id="display" layoutX="17.0" layoutY="21.0" prefHeight="55.0" prefWidth="273.0" style="-fx-background-color: white;" text="" />

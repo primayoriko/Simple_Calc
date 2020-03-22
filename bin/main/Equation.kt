@@ -19,6 +19,8 @@ interface EquationGeneric<T>{
 
     public fun clear()
 
+    //public fun clearAll()
+
     public fun printEquation() : T
 
     public fun calculate() : T
@@ -91,6 +93,10 @@ class Equation : EquationGeneric<String>{
             }
         }
     }
+
+//    override fun clear() {
+//        TODO("Not yet implemented")
+//    }
 
     override fun clear() {
         this.curType=""

@@ -17,37 +17,41 @@ class BasicCommand{
 
     public fun doTask(x: String) : String {
         if(x.equals("=")){
-            equation.addToken()
-            display = equation.calculate()
+            this.equation.addToken()
+            this.display = equation.calculate()
             if(!display.equals("Error")){
-                ans.setValue(display.toDouble())
+                this.ans.setValue(this.display.toDouble())
             }
         }
+        else if(x.equals("CE")){
+            this.display = ""
+            this.equation.clear()
+        }
         else if(x.equals("AC")){
-            display = ""
-            ans.setValue(0.0)
-            equation.clear()
+            this.ans.setValue(0.0)
+            this.savedVal = LinkedList<String>()
+            doTask("CE")
         }
         else if(x.equals("MR")){
-            if(!savedVal.isEmpty()) {
-                equation.clear()
-                display = savedVal.remove()
+            if(!this.savedVal.isEmpty()) {
+                this.equation.clear()
+                this.display = this.savedVal.remove()
             }
         }
         else if(x.equals("MC")){
             doTask("=")
             if(!display.equals("Error")){
-                savedVal.add(display)
+                this.savedVal.add(display)
             }
         }
         else if(x.equals("Ans")){
-            equation.addToken(ans.solve().toString())
-            display = equation.printEquation()
+            this.equation.addToken(ans.solve().toString())
+            this.display = equation.printEquation()
         }
         else{
-            equation.addToken(x)
-            display = equation.printEquation()
+            this.equation.addToken(x)
+            this.display = equation.printEquation()
         }
-        return display
+        return this.display
     }
 }
