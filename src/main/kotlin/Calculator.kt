@@ -49,6 +49,7 @@ class Calculator : View(){
             // Binary Operator
             if(true)
             {
+                display.text += x
                 y1.addDigit(value.solve());
                 value.reset();
                 operatorExpression = x;
