@@ -36,9 +36,8 @@ class BasicCommand{
         }
         else if(x.equals("MR")){
             if(!this.savedVal.isEmpty()) {
-                this.equation.clear()
-                this.display = this.savedVal.remove()
-                this.equation.addToken(this.display)
+                this.equation.addToken(this.savedVal.remove().toString())
+                this.display = this.equation.printEquation()
             }
         }
         else if(x.equals("MC")){
