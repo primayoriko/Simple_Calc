@@ -38,6 +38,7 @@ class BasicCommand{
             if(!this.savedVal.isEmpty()) {
                 this.equation.clear()
                 this.display = this.savedVal.remove()
+                this.equation.addToken(this.display)
             }
         }
         else if(x.equals("MC")){
