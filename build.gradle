@@ -18,7 +18,7 @@ plugins {
 }
 
 group 'com.kel07.kls02.oop'
-version '0.1-Alpha'
+version '0.3-Alpha'
 
 apply plugin : 'kotlin'
 apply plugin: 'application'
