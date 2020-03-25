@@ -13,7 +13,7 @@ Java and Kotlin as Language, JavaFX and  TornadoFX as GUI Framework, and also Gr
 5. Memory functionality (MR, MC, Ans)
 6. Deleting functionality (<-, CE, AC)
 
-## Prequisites
+## Requirements
 ---------
 To run this project, you must have at least:
 1. [JDK](https://www.oracle.com/java/technologies/javase-downloads.html), here I use JDK 14, but it should be safe as long you use JDK version newer than 11.
